@@ -34,10 +34,6 @@ export const renderItem = (id, containerToPlace = itemContainer) => {
     backArrow(h2Header);
 
     //APPEND ELEMENTS TO MAINDIV
-    if(containerToPlace.children.length > 0) {
-        let randomnumber = Math.random();
-        let randomDiv = createElement() 
-    }
     containerToPlace.append(mainDiv);
 
     apiRequest(spesificItem).then((data) => {
