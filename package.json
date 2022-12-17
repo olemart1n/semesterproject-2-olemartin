@@ -1,0 +1,34 @@
+{
+  "name": "semesterproject-2-olemartin",
+  "version": "1.0.0",
+  "description": "auction app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olemart1n/semesterproject-2-olemartin.git"
+  },
+  "keywords": [
+    "noroff",
+    "semesterproject"
+  ],
+  "author": "ole martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olemart1n/semesterproject-2-olemartin/issues"
+  },
+  "homepage": "https://github.com/olemart1n/semesterproject-2-olemartin#readme",
+  "dependencies": {
+    "vite": "^4.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
+  }
+}
