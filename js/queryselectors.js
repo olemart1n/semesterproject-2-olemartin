@@ -21,6 +21,10 @@ export const expireSoonFeed = document.querySelector("#expireSoonFeed");
 export const newListingsFeed = document.querySelector("#newListingsFeed");
 export const divWithRegisterButton = document.querySelector("#divWithRegisterButton");
 export const divWithLoginButton = document.querySelector("#divWithLoginButton");
+export const bar = document.querySelector("#bar");
+export const zoomglass = document.querySelector("#zoomglass");
+export const navWithSearch = document.querySelector("#navWithSearch");
+export const stopSearch = document.querySelector("#stopSearch");
 
 
 export const toggler = (activate, deactivate) => {
@@ -30,7 +34,7 @@ export const toggler = (activate, deactivate) => {
     activate.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden")
 }
 
-export const allFeeds = [profileContainer,registerContainer, searchFilterSection, itemContainer, userItemContainer, ic2, ic3, userContainer, listingsFeed,expireSoonFeed, newListingsFeed]
+export const allFeeds = [searchContainer, profileContainer,registerContainer, searchFilterSection, itemContainer, userItemContainer, ic2, ic3, userContainer, listingsFeed,expireSoonFeed, newListingsFeed]
 const test = [filterSection, registerContainer]
 export const activator = (activate) => {
     allFeeds.forEach(element => {

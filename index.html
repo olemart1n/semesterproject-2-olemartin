@@ -17,7 +17,7 @@
       <div class="hidden md:flex sm-w-auto w-full items-center md:relative absolute top-16 md:top-auto"
         id="navWithSearch">
         <form action="" method="get" class="flex items-center place-content-center mx-auto" id="searchForm">
-          <input class="text-black text-lg border rounded border-logoBg md:py-2 md:text-center" minlength="3"
+          <input class="w-full text-black text-lg border rounded border-logoBg md:py-2 md:text-center" minlength="3"
             type="search" name="search" id="searchInput" placeholder="search">
         </form>
       </div>
@@ -33,14 +33,15 @@
         id="navWithBar">
         <div class="" id="divWithLoginButton">
           <button class="text-logoBg" id="nav-link-1">Login</button>
-          <button class="text-logoBg hidden" id="ghostButton">Profile</button>
         </div>
         <div class="" id="divWithRegisterButton">
           <button class="text-logoBg" id="nav-link-2">Create account</button>
         </div>
       </div>
     </div>
-
+    <div class="absolute min-w-full top-0 left-20 text-xl text-bolds flex min-h-full items-center text-black hidden bg-almostWhite" id="stopSearch">
+      Close     <p>&#9587;</p>
+    </div>
   </nav>
   <main class="bg-auctionBg min-h-screen">
     <div class="hidden md:block md:columns-2 md:w-full md:bg-auctionInput bg-almostWhite pt-10 md:pt-1 md:p-1"
