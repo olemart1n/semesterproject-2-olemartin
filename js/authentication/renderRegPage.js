@@ -1,6 +1,5 @@
 import { regWrapper } from "./formElements";
-import { itemContainer } from "../queryselectors";
+import { registerContainer } from "../queryselectors";
 export const renderRegPage = () => {
-    itemContainer.innerHTML = "";
-    itemContainer.insertAdjacentElement("beforeend", regWrapper);
+    registerContainer.insertAdjacentElement("beforeend", regWrapper);
 };

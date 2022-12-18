@@ -26,7 +26,7 @@ export const renderTitles = (titleArray) => {
             searchContainer.insertAdjacentElement(
                 "beforeend",
                 itemResult(
-                    `../item?id=${element.id}`,
+                    element.id,
                     element.media[0],
                     element.title,
                     activeOrSold(element.endsAt)
@@ -36,9 +36,6 @@ export const renderTitles = (titleArray) => {
     });
     byTitleButton.click();
     h2Header.innerHTML = "Search by title";
-    // byTitleButton.addEventListener("onfocusout", () => {
-    //     searchContainer.innerHTML = "";
-    // });
 };
 
 export const renderTags = (tagsArray) => {
@@ -52,7 +49,7 @@ export const renderTags = (tagsArray) => {
             searchContainer.insertAdjacentElement(
                 "beforeend",
                 itemResult(
-                    `../item?id=${element.id}`,
+                    element.id,
                     element.media[0],
                     element.title,
                     activeOrSold(element.endsAt)

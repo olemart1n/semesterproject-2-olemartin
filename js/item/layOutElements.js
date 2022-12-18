@@ -48,9 +48,6 @@ export const bidForm = createElement("div", {
     class: "bg-auctionBlue w-full bg-opacity-50 md:w-3/4 mx-auto flex my-2 p-1",
 });
 
-export const mainDiv = createElement("div", {
-    class: "relative flex flex-col justify-between bg-almostWhite p-3",
-});
 export const slideContainer = createElement("div", {
     class: "",
 });
@@ -72,7 +69,6 @@ imageLabels.append(imageLabelsHeader);
 export const itemDetails = createElement("div", {
     class: "bg-white p-5 mx-auto flex flex-col   md:w-4/5 border border-auctionBrown rounded-lg drop-shadow-sm my-10",
 });
-mainDiv.append(seller, itemDetails);
 
 //------------------------------------------------------
 export const description = createElement("div", {

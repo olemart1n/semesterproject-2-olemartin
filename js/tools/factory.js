@@ -7,6 +7,3 @@ export const createElement = (type, attributes) => {
 
     return element;
 };
-// --------------------
-// const newDiv = createElement("div", { class: "classvalue", id: "idvalue" });
-// console.log(newDiv.outerHTML); // <div class="aclass" id="anId"></div>

@@ -5,14 +5,13 @@ import { expiringSoon } from "./expiringSoon.js";
 import { search } from "./search.js";
 import {
     filterSection,
-    listingsFeed,
     expireSoonFeed,
-    profileContainer,
     newListingsFeed,
-    searchContainer,
     searchFilterSection,
-    userContainer,
+    activator,
+    h2Header
 } from "../queryselectors.js";
+import {buttonclone} from "../tools/buttonclone.js"
 
 export const newExpireSoonBtn = expireSoonBtn.cloneNode(true);
 newExpireSoonBtn.innerHTML = "Expiring today";
@@ -25,63 +24,28 @@ newNewBtn.id = "newNewBtn";
 export const filter = () => {
     filterSection.insertAdjacentElement("beforeend", nav);
     newBtn.addEventListener("click", (e) => {
-        e.currentTarget.classList.add("bg-auctionBlue");
-        listingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        newest(0, 14);
-        expireSoonBtn.classList.remove("bg-auctionBlue");
-        newExpireSoonBtn.classList.remove("bg-auctionBlue"); // the coming button
-        newBtn.remove();
-        twoButtonsDiv.insertAdjacentElement("beforeend", newNewBtn);
-        newNewBtn.classList.add("bg-auctionBlue");
-        profileContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        expireSoonFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        newListingsFeed.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchFilterSection.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        userContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
+        const doThis = () => {
+            activator(newListingsFeed)
+            h2Header.innerHTML = "New Listings"
+            document.querySelector(".expire").classList.remove('bg-auctionBlue')
+        }
+        buttonclone(newBtn, twoButtonsDiv, 'beforeend', 'bg-auctionBlue', doThis, 'Newest')
+        activator(newListingsFeed)
+        newest(0, 16)
+        document.querySelector(".expire").classList.remove('bg-auctionBlue')
     });
     expireSoonBtn.addEventListener("click", (e) => {
-        listingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
+        const doThat = () => {
+            activator(expireSoonFeed)
+            h2Header.innerHTML = "Expires today"
+            document.querySelector(".newest").classList.remove('bg-auctionBlue')
+        }
+        buttonclone(expireSoonBtn, twoButtonsDiv, 'afterbegin', 'bg-auctionBlue', doThat, 'Expiring today')
+        activator(expireSoonFeed)
         expiringSoon(0, 14);
-        newBtn.classList.remove("bg-auctionBlue");
-        newNewBtn.classList.remove("bg-auctionBlue");
-        expireSoonFeed.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        expireSoonBtn.remove();
-        twoButtonsDiv.insertAdjacentElement("afterbegin", newExpireSoonBtn);
-        newExpireSoonBtn.classList.add("bg-auctionBlue");
-        newListingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchFilterSection.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        userContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
+        document.querySelector(".newest").classList.remove('bg-auctionBlue')
     });
     searchFocus();
     search();
-    // searchFocusOut();
 };
 
-export const loggedInFilter = () => {
-    newExpireSoonBtn.addEventListener("click", (e) => {
-        newNewBtn.classList.remove("bg-auctionBlue");
-        e.currentTarget.classList.add("bg-auctionBlue");
-        listingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        expireSoonFeed.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        profileContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        newListingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchFilterSection.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        userContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-    });
-    newNewBtn.addEventListener("click", (e) => {
-        e.currentTarget.classList.add("bg-auctionBlue");
-        expireSoonFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        e.currentTarget.classList.add("bg-auction");
-        listingsFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        newExpireSoonBtn.classList.remove("bg-auctionBlue");
-        expireSoonFeed.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        profileContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        newListingsFeed.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        searchFilterSection.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-        userContainer.classList.add("hidden", "sm:hidden", "md:hidden", "lg:hidden");
-    });
-};

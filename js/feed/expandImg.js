@@ -7,8 +7,6 @@ export const expandImg = () => {
             document.querySelector("main").append(modal);
             let modalHeritage = e.currentTarget.nextElementSibling.nextElementSibling;
             const modalContent = modalHeritage.cloneNode(true);
-            // const modalContent = document.createElement("figure");
-            // modalContent.style.backgroundImage = `url("${e.currentTarget.id})`;
             modal.append(modalContent);
             modal.addEventListener("click", () => {
                 document.querySelector(".modal").remove();

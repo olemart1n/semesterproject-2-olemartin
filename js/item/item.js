@@ -14,7 +14,6 @@ import {
     bidBtn,
     bidSection,
     bidLabel,
-    mainDiv,
     slideContainer,
     title,
     seller,
@@ -23,18 +22,18 @@ import {
     descriptionTags,
     allBidsBtn,
     allBids,
+    itemDetails
 } from "./layOutElements.js";
 import { h2Header, itemContainer, userContainer } from "../queryselectors.js";
 import { getToUser } from "../user/getToUser.js";
 
-export const renderItem = (id, containerToPlace = itemContainer) => {
+export const renderItem = (id, containerToPlace) => {
     h2Header.innerHTML = "";
     document.title = `Item | AuctionHouse`;
     const spesificItem = `listings/${id}?_seller=true&_bids=true`;
     backArrow(h2Header);
 
-    //APPEND ELEMENTS TO MAINDIV
-    containerToPlace.append(mainDiv);
+    containerToPlace.append(seller, itemDetails);
 
     apiRequest(spesificItem).then((data) => {
         if (data.media.length > 0) {
@@ -85,7 +84,6 @@ export const renderItem = (id, containerToPlace = itemContainer) => {
         } else {
             bidLabel.innerHTML = "log in to bid";
         }
-        console.log(data);
         viewBids(allBidsBtn, allBids, data.bids);
         getToUser(data.seller.name, data.seller.name);
     });

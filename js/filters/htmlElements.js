@@ -2,12 +2,12 @@ import { createElement } from "../tools/factory.js";
 import { timeGap } from "../tools/timeCalc/definitions.js";
 
 export const newBtn = createElement("button", {
-    class: "text-almostWhite bg-logoBg w-1/4  rounded-none px-1 border-none mx-auto w-30 enabled:hover:outline-none",
+    class: "text-almostWhite bg-logoBg w-1/4 newest  rounded-none px-1 border-none mx-auto w-30 enabled:hover:outline-none",
     id: "filter-link-1",
 });
 newBtn.innerHTML = "Newest";
 export const expireSoonBtn = createElement("button", {
-    class: "text-almostWhite bg-logoBg w-1/4  rounded-none px-1 border-none mx-auto w-30 enabled:hover:outline-none",
+    class: "text-almostWhite expire bg-logoBg w-1/4  rounded-none px-1 border-none mx-auto w-30 enabled:hover:outline-none",
     id: "filter-link-2",
 });
 expireSoonBtn.innerHTML = "Expiring today";
@@ -47,8 +47,8 @@ byTagsButton.innerHTML = "tags";
 // the elements containg each result
 
 export const itemResult = (aHref, aSrc, aTitle, anItemStatus) => {
-    const itemLink = createElement("a", {
-        class: "w-full grid grid-cols-3 relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center",
+    const itemLink = createElement("button", {
+        class: `w-full searchItem${aHref} grid grid-cols-3 relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center`,
     });
     itemLink.href = aHref;
     const itemImg = createElement("img", { class: "h-12 w-12 aspect-square object-cover mx-auto" });
@@ -73,10 +73,9 @@ export const activeOrSold = (data) => {
 // User results has its own container with other stylings
 
 export const userResult = (name, avatar, aTitle) => {
-    const itemLink = createElement("a", {
-        class: "w-full grid grid-cols-2 relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center",
+    const itemLink = createElement("button", {
+        class: `w-full grid grid-cols-2 nameIs${name} relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center`,
     });
-    itemLink.href = "../user/" + name;
     const itemImg = createElement("img", { class: "h-12 w-12 aspect-square object-cover mx-auto" });
     itemImg.src = avatar;
     const itemTitle = createElement("p", { class: "text-auctionGrey" });
