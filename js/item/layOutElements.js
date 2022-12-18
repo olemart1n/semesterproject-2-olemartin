@@ -101,3 +101,6 @@ itemDetails.append(
     bidForm,
     description
 );
+
+export const theLink = createElement('a', {class: "flex flex-col w-full m-auto p-3"})
+theLink.append(seller, itemDetails)

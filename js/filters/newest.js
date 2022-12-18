@@ -3,7 +3,6 @@ import { apiRequest } from "../tools/fetch.js";
 import { expandImg } from "../feed/expandImg.js";
 import { nextBtn } from "./htmlElements.js";
 import { newListingsFeed, h2Header } from "../queryselectors.js";
-import { getToItem } from "../item/getToItem.js";
 
 // parameters gets changed if user click nect page [not coded yet]
 export const newest = async (start, end) => {
@@ -18,7 +17,6 @@ export const newest = async (start, end) => {
             const element = noneUndefinedImgs[i];
             feedLayout(element);
             newListingsFeed.insertAdjacentHTML("beforeend", feedLayout(element));
-            getToItem(element.id);
         }
     });
     expandImg();

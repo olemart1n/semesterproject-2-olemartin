@@ -5,7 +5,6 @@ import { timeGap } from "../tools/timeCalc/definitions.js";
 import { closeToExp } from "../tools/timeCalc/timeLeft.js";
 import { counterContainer } from "../tools/timeCalc/countdown.js";
 import { expireSoonFeed, h2Header } from "../queryselectors.js";
-import { getToItem } from "../item/getToItem.js";
 
 export const expiringSoon = async (start, end) => {
     let finalArray = [];
@@ -41,7 +40,6 @@ export const expiringSoon = async (start, end) => {
             const id = element.id;
             expireSoonFeed.insertAdjacentHTML("beforeend", feedLayoutNr2(element));
             counterContainer(id, defined);
-            getToItem(id);
         }
     });
     expandImg();

@@ -1,6 +1,5 @@
 import {
     navLinkTwo,
-    itemContainer,
     listingsFeed,
     h2Header,
     profileContainer,

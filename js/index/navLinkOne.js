@@ -5,6 +5,7 @@ import {
     listingsFeed,
     h2Header,
     navWithBar,
+    loginContainer,
     activator,
     divWithLoginButton,
     registerContainer
@@ -20,11 +21,11 @@ export const loginProfileBtn = () => {
     if (load("authed") === "false" || load("authed") === null) {
         navLinkOne.addEventListener("click", () => {
             const doThis = () => {
-                activator(itemContainer)
+                activator(loginContainer)
                 h2Header.innerHTML = "Login"
             }
             buttonclone(navLinkOne, divWithLoginButton, 'afterbegin', 'newButton',doThis)
-            activator(itemContainer)
+            activator(loginContainer)
             h2Header.innerHTML = "LOGIN";
             renderLoginPage();
             loginRequest();

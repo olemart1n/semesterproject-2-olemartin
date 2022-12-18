@@ -32,6 +32,7 @@ export const expandForm = (btn, title, bid, endsAt, allBids, firstImg, itemId) =
             submitBtn.classList.add("bg-green-200");
             setTimeout(() => {
                 window.location.reload();
+                
             }, 1500);
         });
     });

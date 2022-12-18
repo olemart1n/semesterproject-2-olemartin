@@ -1,6 +1,6 @@
 import { wrapper } from "./formElements";
-import { itemContainer } from "../queryselectors";
+import { loginContainer } from "../queryselectors";
 
 export const renderLoginPage = () => {
-    itemContainer.insertAdjacentElement("beforeend", wrapper);
+    loginContainer.insertAdjacentElement("beforeend", wrapper);
 };

@@ -13,16 +13,17 @@ import {
     bidContainer,
 } from "./layoutElements.js";
 import { backArrow } from "../tools/UI/backArrow.js";
-import { getToUserItem } from "./getToItemm.js";
-import { h2Header, userContainer, ic2, ic3 } from "../queryselectors.js";
+import { h2Header, userContainer, ic3 } from "../queryselectors.js";
 const { getWithJwt } = fetchOptions;
 
 // FÅ ID FRA BUTTON
 
 export const renderUser = (namex) => {
     backArrow(h2Header);
-    const listingsFetch = `profiles/${namex}?_listings=true `;
-    const bidsFetch = `profiles/${namex}/bids?_listings=true`;
+    const queryString = document.location.search;
+    const nameUser = new URLSearchParams(queryString).get("user");
+    const listingsFetch = `profiles/${nameUser}?_listings=true `;
+    const bidsFetch = `profiles/${nameUser}/bids?_listings=true`;
     userContainer.append(headerSection, allItemsContinaer, allBidsContainer);
     apiRequest(listingsFetch, getWithJwt).then((data) => {
         userAvatar.src = data.avatar;
@@ -38,7 +39,7 @@ export const renderUser = (namex) => {
                     activeOrSold(element.endsAt)
                 )
             );
-            getToUserItem(element.id, ic3);
+            
         });
     });
     apiRequest(bidsFetch, getWithJwt).then((data) => {
@@ -47,7 +48,7 @@ export const renderUser = (namex) => {
             allBidsContainer.insertAdjacentElement(
                 "beforeend",
                 bidContainer(
-                    `../item?id=${element.listing.id}`,
+                    `item?id=${element.listing.id}`,
                     element.listing.title,
                     activeOrSold(element.listing.endsAt)
                 )

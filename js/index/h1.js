@@ -6,7 +6,8 @@ import {
 } from "../queryselectors.js";
 export const homeLink = () => {
     h1.addEventListener("click", () => {
-        document.location.reload();
+        document.location.replace("/semesterproject-2-olemartin/")
+        // document.location.reload();
         // activator(listingsFeed)
         // console.log("HELLO")
     });

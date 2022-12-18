@@ -52,7 +52,7 @@ export const renderProfile = async () => {
                     element.media[0],
                     element.title,
                     activeOrSold(element.endsAt),
-                    `../item?id=${element.id}`,
+                    `item?id=${element.id}`,
                     element.id
                 )
             );

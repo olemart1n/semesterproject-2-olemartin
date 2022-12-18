@@ -10,7 +10,7 @@ export const feedLayoutNr2 = (element) => {
     <div class="flex text-auctionBlue min-w-full justify-around counterB">
     <div class="grid grid-cols-3  m-0 p-0 w-1/2 counterBox${element.id}">
     </div>
-    <button id="${element.id}" class="bg-auctionGrey p-1 mb-5 rounded-sm text-almostWhite item${element.id}">view item</button>
+    <a href="item?id=${element.id}" class="bg-auctionGrey p-1 mb-5 rounded-sm text-almostWhite item${element.id}">view item</a>
     </div>
   </div>
     `;

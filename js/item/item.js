@@ -7,6 +7,7 @@ import { backArrow } from "../tools/UI/backArrow.js";
 import { authCheck } from "../tools/authCheck.js";
 import { viewBids } from "./allBidsEvent.js";
 import {createElement} from "../tools/factory.js"
+import {expandForm} from "./formModal.js"
 import {
     leftSideText,
     rightSideText,
@@ -22,18 +23,20 @@ import {
     descriptionTags,
     allBidsBtn,
     allBids,
-    itemDetails
+    theLink
 } from "./layOutElements.js";
-import { h2Header, itemContainer, userContainer } from "../queryselectors.js";
-import { getToUser } from "../user/getToUser.js";
+import { h2Header, itemContainer, userContainer, userItemContainer } from "../queryselectors.js";
 
-export const renderItem = (id, containerToPlace) => {
+export const renderItem = () => {
+
+    const queryString = document.location.search;
+    const id = new URLSearchParams(queryString).get("id");
+    const containerToPlace = document.querySelector("#itemContainer")
     h2Header.innerHTML = "";
     document.title = `Item | AuctionHouse`;
     const spesificItem = `listings/${id}?_seller=true&_bids=true`;
     backArrow(h2Header);
-
-    containerToPlace.append(seller, itemDetails);
+    userItemContainer.append(theLink)
 
     apiRequest(spesificItem).then((data) => {
         if (data.media.length > 0) {
@@ -45,7 +48,7 @@ export const renderItem = (id, containerToPlace) => {
         const endsAt = data.endsAt;
         title.innerHTML = data.title;
         if (authCheck()) {
-            seller.innerHTML = `<button class="border border-black px-2 rounded-none user${data.seller.name}" id"../user/${data.seller.name}"><span class="text-auctionGrey">seller: </span class="font-bold text-lg">${data.seller.name}</button>`;
+            seller.innerHTML = `<a class="border border-black px-2 rounded-none" href="?user=${data.seller.name}"><span class="text-auctionGrey">seller: </span class="font-bold text-lg">${data.seller.name}</a>`;
         } else {
             seller.innerHTML = `<button disabled="disabled">${data.seller.name} <span class="text-auctionGrey">(log in to visit ) </span></button>`;
         }
@@ -85,6 +88,7 @@ export const renderItem = (id, containerToPlace) => {
             bidLabel.innerHTML = "log in to bid";
         }
         viewBids(allBidsBtn, allBids, data.bids);
-        getToUser(data.seller.name, data.seller.name);
+        console.log(data)
+        // expandForm()
     });
 };

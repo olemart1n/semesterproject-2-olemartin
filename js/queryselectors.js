@@ -5,9 +5,9 @@ export const searchForm = document.querySelector("#searchForm");
 export const searchContainer = document.querySelector("#searchResults");
 export const itemContainer = document.querySelector(".itemContainer");
 export const userItemContainer = document.querySelector("#itemContainer1");
-export const ic2 = document.querySelector("#itemContainer2");
 export const ic3 = document.querySelector("#itemContainer3");
 export const registerContainer = document.querySelector("#registerContainer");
+export const loginContainer = document.querySelector("#loginContainer");
 export const userContainer = document.querySelector("#userContainer");
 export let listingsFeed = document.querySelector("#listingsFeed");
 export const h2Header = document.querySelector("#listingHeader");
@@ -34,7 +34,7 @@ export const toggler = (activate, deactivate) => {
     activate.classList.remove("hidden", "sm:hidden", "md:hidden", "lg:hidden")
 }
 
-export const allFeeds = [searchContainer, profileContainer,registerContainer, searchFilterSection, itemContainer, userItemContainer, ic2, ic3, userContainer, listingsFeed,expireSoonFeed, newListingsFeed]
+export const allFeeds = [searchContainer, loginContainer, profileContainer,registerContainer, searchFilterSection, itemContainer, userItemContainer, ic3, userContainer, listingsFeed,expireSoonFeed, newListingsFeed]
 const test = [filterSection, registerContainer]
 export const activator = (activate) => {
     allFeeds.forEach(element => {
