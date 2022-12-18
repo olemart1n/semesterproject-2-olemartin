@@ -4,6 +4,7 @@ import { endpoints, fetchOptions } from "../endpoints.js";
 import { createEntry } from "../forms/entry.js";
 import { itemForm } from "./entryInputs.js";
 import { refresh } from "./clickEvents.js";
+import {save} from "../storage/index.js"
 import {
     profileAvatar,
     profileName,
@@ -77,6 +78,7 @@ export const renderProfile = async () => {
         e.preventDefault();
         createEntry(e);
         setTimeout(() => {
+            save('updatedProfile', 'true')
             document.location.reload();
         }, 500);
     });
