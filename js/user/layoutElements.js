@@ -23,7 +23,7 @@ allItemsContinaer.append(subHeader1);
 //
 export const itemConainer = (aHref, aSrc, aTitle, anItemStatus) => {
     const itemLink = createElement("a", {
-        class: `w-full grid grid-cols-3 relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center`, href: `item?${ahref}`,
+        class: `w-full grid grid-cols-3 relative h-24 items-center border rounded border-auctionBrown my-2 place-content-center`, href: `item?id=${aHref}`,
     });
     const itemImg = createElement("img", { class: "h-12 w-12 aspect-square object-cover mx-auto" });
     itemImg.src = aSrc;

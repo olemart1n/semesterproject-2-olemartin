@@ -3,6 +3,7 @@ import { apiRequest } from "../tools/fetch.js";
 import { endpoints, fetchOptions } from "../endpoints.js";
 import { updateModal, itemFormClone } from "./profile.js";
 import { createElement } from "../tools/factory.js";
+import {save} from "../storage/index.js"
 const { listings } = endpoints;
 const { getWithJwt } = fetchOptions;
 
@@ -47,6 +48,7 @@ export const updateFunc = (button) => {
             e.preventDefault();
             updateEntry(e, button.id);
             setTimeout(() => {
+                save('updatedProfile', 'true')
                 window.location.reload();
             }, 1000);
         });

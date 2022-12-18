@@ -8,6 +8,7 @@ import { authCheck } from "../tools/authCheck.js";
 import { viewBids } from "./allBidsEvent.js";
 import {createElement} from "../tools/factory.js"
 import {expandForm} from "./formModal.js"
+import {bidHighest} from "./highestBid.js"
 import {
     leftSideText,
     rightSideText,
@@ -47,6 +48,7 @@ export const renderItem = () => {
         }
         const endsAt = data.endsAt;
         title.innerHTML = data.title;
+        const bidAmunt = bidHighest(data.bids)
         if (authCheck()) {
             seller.innerHTML = `<a class="border border-black px-2 rounded-none" href="?user=${data.seller.name}"><span class="text-auctionGrey">seller: </span class="font-bold text-lg">${data.seller.name}</a>`;
         } else {
@@ -62,17 +64,18 @@ export const renderItem = () => {
             rightSideText.innerHTML =
                 data.bids[data.bids.length - 1].bidderName +
                 ": " +
-                data.bids[data.bids.length - 1].amount +
+                bidAmunt +
                 "$";
         } else {
             rightSideText.innerHTML = 0 + "$";
         }
+        console.log(data.bids)
         descriptionText.innerHTML = data.description;
         descriptionTags.innerHTML = "tags: " + data.tags.toString("");
         if (timeGap(data.endsAt) < 0) {
             bidSection.innerHTML = "Not possible to bid on this item";
         }
-        const bidAmunt = data.bids[data.bids.length - 1]?.amount ?? 0;
+        // const bidAmunt = data.bids[data.bids.length - 1]?.amount ?? 0;
         if (authCheck()) {
             inputKeyup(
                 bidInput,

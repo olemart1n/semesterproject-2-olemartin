@@ -18,7 +18,7 @@ export const expandForm = (btn, title, bid, endsAt, allBids, firstImg, itemId) =
         endDate.innerHTML =
             "<span class='underline underline-offset-2 '>current status</span>" +
             minutesLeft(endsAt, allBids);
-        currentCredit.innerHTML = "Your credits " + load("credits") + "$";
+        currentCredit.innerHTML = "Wallet " + load("credits") + "$";
         input.value = bid;
         closeBtn.addEventListener("click", () => {
             document.querySelector(".modal").remove();
@@ -32,7 +32,7 @@ export const expandForm = (btn, title, bid, endsAt, allBids, firstImg, itemId) =
             submitBtn.classList.add("bg-green-200");
             setTimeout(() => {
                 window.location.reload();
-                
+
             }, 1500);
         });
     });
@@ -61,7 +61,7 @@ const endDate = createElement("h4", {
 });
 //-------------CURRENT CREDIT
 const currentCredit = createElement("h4", {
-    class: "py-3 absolute left-0 top-1  text-logoBg font-bold",
+    class: "py-3 absolute left-0 top-0  text-black  text-lg",
 });
 
 //----------------AMOUNT
@@ -80,7 +80,7 @@ const input = createElement("input", {
 const submitBtn = createElement("input", {
     type: "submit",
     value: "Confirm",
-    class: "border text-lg font-bold border-radius-sm bg-orange-300 text-auctionBrown py-2 px-4",
+    class: "border text-lg font-bold border-radius-sm bg-auctionGreen text-auctionBrown py-1 px-2 mb-2",
 });
 
 bidForm.append(header);

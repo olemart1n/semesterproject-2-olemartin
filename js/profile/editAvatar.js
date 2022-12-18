@@ -39,6 +39,7 @@ export const changeAvatar = (btn) => {
                 remove("avatar");
                 save("avatar", data.avatar);
                 setTimeout(() => {
+                    save('updatedProfile', 'true')
                     window.location.reload();
                 }, 1000);
             });
